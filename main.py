@@ -1,0 +1,1 @@
+print(“DIGITAL LIFE // SYSTEM START”)
