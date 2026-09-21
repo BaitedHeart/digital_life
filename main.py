@@ -37,3 +37,38 @@ if hatch_progress >= 100:
         digimon = "Balancemon"
 
     print("Es schlüpft:", digimon)
+
+    hunger = 0
+    energy = 100
+
+    while True:
+        action = input("Aktion wählen (füttern/spielen/schlafen/status): ")
+
+        if action == "status":
+            print("Hunger:", hunger)
+            print("Energie:", energy)
+
+        elif action == "füttern":
+            hunger = max(0, hunger - 20)
+            print(digimon, "wurde gefüttert.")
+            print("Hunger:", hunger)
+
+        elif action == "spielen":
+            if energy >= 15:
+                energy = energy - 15
+                bond = bond + 1
+                print(digimon, "spielt mit dir.")
+                print("Energie:", energy)
+                print("Bindung:", bond)
+            else:
+                print(digimon, "ist zu müde zum Spielen.")
+
+        elif action == "schlafen":
+            energy = min(100, energy + 30)
+            print(digimon, "ruht sich aus.")
+            print("Energie:", energy)
+
+        hunger = min(100, hunger + 5)
+
+        if hunger >= 100:
+            print(digimon, "hat sehr großen Hunger!")
