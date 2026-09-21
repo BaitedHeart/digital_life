@@ -29,7 +29,11 @@ while hatch_progress < 100:
 if hatch_progress >= 100:
     print("Das Digi-Ei schlüpft!")
 
-    if bond >= 5:
-        print("Das Wesen reagiert sofort auf deine Nähe.")
+    if bond > warmth:
+        digimon = "Bondmon"
+    elif warmth > bond:
+        digimon = "Flaremon"
     else:
-        print("Das Wesen wirkt noch etwas zurückhaltend.")
+        digimon = "Balancemon"
+
+    print("Es schlüpft:", digimon)
